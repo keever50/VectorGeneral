@@ -4,10 +4,19 @@ using UnityEngine;
 
 public class TurretRotation : MonoBehaviour {
 
-	// Use this for initialization
+    // Use this for initialization
+    AudioSource SpinSound;
+    
+    
 	void Start () {
-		
-	}
+
+        SpinSound = gameObject.AddComponent<AudioSource>();
+        SpinSound.clip = Resources.Load<AudioClip>("Sounds/Other/turret4");
+        SpinSound.maxDistance = 50;
+        SpinSound.spatialBlend = 1;
+        SpinSound.loop = true;
+        SpinSound.Play();
+    }
 
     // Update is called once per frame
     public float damping;
@@ -26,6 +35,11 @@ public class TurretRotation : MonoBehaviour {
         var lookPos = target - transform.position;
         lookPos.y = 0;
         var rotation = Quaternion.LookRotation(lookPos);
-        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * damping);
+        var Slerp = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * damping);
+        transform.rotation = Slerp;
+
+        //Sound effect
+        float diff = Mathf.Abs(Mathf.Abs(Slerp.y) - Mathf.Abs(rotation.y));
+        SpinSound.pitch = diff * 2 ;
     }
 }

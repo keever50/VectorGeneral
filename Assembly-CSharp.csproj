@@ -111,7 +111,9 @@
     <Compile Include="Assets\PostProcessing\Runtime\Utils\MaterialFactory.cs" />
     <Compile Include="Assets\PostProcessing\Runtime\Utils\RenderTextureFactory.cs" />
     <Compile Include="Assets\PostProcessing\Utilities\CustomMotionTexture\ExampleWheelController.cs" />
+    <Compile Include="Assets\Scripts\BattleUserControll.cs" />
     <Compile Include="Assets\Scripts\CustomRender.cs" />
+    <Compile Include="Assets\Scripts\Lib\ExtraVectors.cs" />
     <Compile Include="Assets\Scripts\MainCameraMovement.cs" />
     <Compile Include="Assets\Scripts\MapLoader.cs" />
     <Compile Include="Assets\Scripts\TestMovement.cs" />

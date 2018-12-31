@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class MainCameraMovement : MonoBehaviour {
 
-	// Use this for initialization
+    // Use this for initialization
+    public Camera Cam;
 	void Start () {
-		
+        //Cam = this.GetComponentInChildren<Camera>();	
 	}
 
     // Update is called once per frame
@@ -43,6 +44,12 @@ public class MainCameraMovement : MonoBehaviour {
         if (CameraVelocity.magnitude > 0.1f)
         {
             this.transform.position = this.transform.position + CameraVelocity;
+        }
+
+        //Zoom
+        if(Input.mouseScrollDelta.y != 0)
+        {
+            Cam.transform.position = Cam.transform.position + Cam.transform.forward * Input.mouseScrollDelta.y; 
         }
 	}
 }

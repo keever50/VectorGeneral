@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 public class TestMovement : MonoBehaviour {
     public NavMeshAgent agent;
+    public AudioSource EngineSound;
 	// Use this for initialization
 	void Start () {
         agent = this.GetComponent<NavMeshAgent>();
@@ -22,6 +23,14 @@ public class TestMovement : MonoBehaviour {
             {
                 agent.SetDestination(hit.point);
             }
+        }
+        if(agent.remainingDistance > 10)
+        {
+            EngineSound.pitch = Mathf.Lerp(EngineSound.pitch, 1, 0.02f);
+        }
+        else
+        {
+            EngineSound.pitch = Mathf.Lerp(EngineSound.pitch, 0.40f, 0.01f);
         }
     }
 }

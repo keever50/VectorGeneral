@@ -24,12 +24,6 @@ public class CustomRender : MonoBehaviour {
     public GameObject LookingAt;
 
     void Update () {
-        
-        if (Input.mouseScrollDelta.y != 0f)
-        {
-            Cam.fieldOfView = Cam.fieldOfView - Input.mouseScrollDelta.y;
-        }
-
 
 
 	}
